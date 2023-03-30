@@ -1,4 +1,4 @@
-# MyArchLinux
+# My Arch Linux
 
 ## 写在前面
 
@@ -107,13 +107,22 @@ mkfs.ext4 /dev/nvmen1p4
 
 ### 5，挂载磁盘
 
+```bash
+mount /dev/nvmen1p3 /mnt
+mkdir /mnt/home
+mkdir /mnt/boot
+mount /dev/nvmen1p4 /mnt/home
+mount /dev/nvmen1p1 /mnt/boot
+df -h # 查看挂载情况
+```
+
+### 6，安装系统
+
 用`pasctrap`命令安装`archlinux`的基本框架
 
 ```bash
 pasctrap /mnt linux linux-firmware base base-devel sudo
 ```
-
-### 6，安装系统
 
 用`genfstab`命令生成`fstab`，使得系统开机自动挂载磁盘
 
